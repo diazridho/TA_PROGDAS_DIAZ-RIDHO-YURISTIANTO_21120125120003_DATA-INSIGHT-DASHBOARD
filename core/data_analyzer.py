@@ -2,7 +2,6 @@ import pandas as pd
 
 class DataAnalyzer:
 
-    # Statistik deskriptif
     @staticmethod
     def summary(df):
         desc = df.describe(include='all')
@@ -46,6 +45,11 @@ class DataAnalyzer:
     @staticmethod
     def unique_values(df):
         return df.nunique().sort_values(ascending=False)
+    
+    # Tipe data setiap kolom
+    @staticmethod
+    def data_types(df):
+        return df.dtypes
     
     # Penggunaan memori setiap kolom
     @staticmethod
