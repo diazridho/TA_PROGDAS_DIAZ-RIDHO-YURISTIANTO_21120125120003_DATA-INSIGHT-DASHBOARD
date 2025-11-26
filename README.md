@@ -12,6 +12,11 @@ DATA INSIGHT DASHBOARD IS A PLATFORM VISUAL ANALYTICS DATA THAT DEVELOP FOR PROV
     - UNIQUE COUNT 
     - COMPLETE VALUE ROWS
     - MISSING VALUE ROWS
+    - MISSING VALUE
     - DUPLICATE VALUE
     - CHART
+
+# PROJECT ARCHITECTURE
+core/
+AppState.py: Sebagai global state manager; mengelola dataset, path, dan selection
 
