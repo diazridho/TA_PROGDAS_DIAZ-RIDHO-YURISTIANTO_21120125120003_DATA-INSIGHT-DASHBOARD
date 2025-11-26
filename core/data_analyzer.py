@@ -1,20 +1,8 @@
 import pandas as pd
-from pandas.api import types as cek_data
 
 class DataAnalyzer:
 
-    # Membuat ringkasan statistik dari dataframe dengan mengganti index asli describe
-    @staticmethod
-    def detect_column_type(df, column):
-        if cek_data.is_numeric_dtype(df[column]):
-            return "numeric"
-        elif cek_data.is_string_dtype(df[column]) or cek_data.is_object_dtype(df[column]):
-            return "categorical"
-        elif cek_data.is_datetime64_any_dtype(df[column]):
-            return "datetime"
-        else:
-            return "tidak diketahui tipe datanya bang"
-        
+    # Statistik deskriptif
     @staticmethod
     def summary(df):
         desc = df.describe(include='all')
@@ -58,11 +46,6 @@ class DataAnalyzer:
     @staticmethod
     def unique_values(df):
         return df.nunique().sort_values(ascending=False)
-    
-    # Tipe data setiap kolom
-    @staticmethod
-    def data_types(df):
-        return df.dtypes
     
     # Penggunaan memori setiap kolom
     @staticmethod
