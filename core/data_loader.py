@@ -1,9 +1,8 @@
 import pandas as pd
 import os
-from sqlalchemy import create_engine
 
 class DataLoader:
-    SUPPORTED = ('.csv', '.xlsx', '.json', '.parquet', '.txt', '.sql')
+    SUPPORTED = ('.csv', '.xlsx', '.json', '.parquet', '.txt')
 
     @staticmethod
     def DataLoad(path):
@@ -21,8 +20,4 @@ class DataLoader:
             return pd.read_parquet(path)
         elif extension == '.txt':
             return pd.read_csv(path, delimiter='\t')
-        elif extension == 'sql':
-            engine = create_engine(path)
-            query = "SELECT * FROM your_table_name"  
-            return pd.read_sql(query, engine)
         
