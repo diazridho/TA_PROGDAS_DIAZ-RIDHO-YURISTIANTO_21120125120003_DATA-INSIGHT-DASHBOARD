@@ -14,7 +14,7 @@ __pycache__/
 .vscode/
 
 # Testing data
-/data_tes/
+data_tes/
 
 # Distribution / build
 build/
@@ -30,3 +30,5 @@ Thumbs.db
 
 # Environment variables
 *.env
+
+
