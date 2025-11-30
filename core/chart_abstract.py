@@ -16,6 +16,10 @@ class abstract_single(ABC):
         pass
 
     @abstractmethod
+    def heatmap(self, data, column):
+        pass
+
+    @abstractmethod
     def box_plot(self, data, column):
         pass
     
@@ -34,7 +38,11 @@ class abstract_single(ABC):
 
 class abstract_double(ABC):
     @abstractmethod
-    def line_chart(self, data, x_column, y_column):
+    def histogram(self, data, x_column, y_column):
+        pass
+
+    @abstractmethod
+    def bar_chart(self, data, x_column, y_column):
         pass
 
     @abstractmethod
