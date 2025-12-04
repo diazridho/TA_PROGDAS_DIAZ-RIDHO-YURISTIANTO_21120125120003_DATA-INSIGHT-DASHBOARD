@@ -1,11 +1,30 @@
-from core.data_loader import DataLoader
-from core.data_analyzer import DataAnalyzer
-from core.chart_generator import ChartGeneratorDouble, ChartGeneratorSingle
-from matplotlib.figure import Figure 
+import sys
+from PyQt6.QtWidgets import QApplication
+from ui.main_window import MainWindow
 
-if __name__ == "__main__":
-    path = "data_tes/sample_demo.csv"
-    df = DataLoader.DataLoad(path)
+def main():
+    app = QApplication(sys.argv)
     
-    tes = ChartGeneratorSingle()
-    print(tes.__dict__)
+    # Set application style
+    app.setStyle('Fusion')
+    
+    # Create main window
+    window = MainWindow()
+    window.show()
+    
+    # Connect data loading between pages, setelah window.show()
+    try:
+        dashboard = window.get_dashboard_page()
+        data_explorer = window.get_data_explorer_page()
+        
+        # Connect signal
+        dashboard.data_loaded.connect(data_explorer.update_data)
+        print("Signals connected successfully")  
+        
+    except Exception as e:
+        print(f"Error connecting signals: {e}")  
+    
+    sys.exit(app.exec())
+
+if __name__ == '__main__':
+    main()
