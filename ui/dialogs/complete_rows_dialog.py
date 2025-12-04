@@ -56,4 +56,4 @@ class CompleteRowsDialog(QDialog):
                 for j in range(len(display_df.columns)):
                     value = display_df.iloc[i, j]
                     item = QTableWidgetItem(str(value))
-                    self.table.setItem(i, j, item)  # PERBAIKAN: tambah item
+                    self.table.setItem(i, j, item)  

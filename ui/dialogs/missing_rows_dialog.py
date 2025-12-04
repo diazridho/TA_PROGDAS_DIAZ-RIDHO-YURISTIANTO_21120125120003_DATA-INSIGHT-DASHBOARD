@@ -24,7 +24,7 @@ class MissingRowsDialog(QDialog):
         layout.addWidget(self.table)
         
         # Close button
-                # Close button
+            
         close_btn = QPushButton("Close")
         close_btn.setStyleSheet("""
             QPushButton {
@@ -57,11 +57,11 @@ class MissingRowsDialog(QDialog):
                 for j in range(len(display_df.columns)):
                     value = display_df.iloc[i, j]
                     item = QTableWidgetItem(str(value) if not pd.isna(value) else "NaN")
-                    self.table.setItem(i, j, item)  # PERBAIKAN: tambah item
+                    self.table.setItem(i, j, item)  
         else:
-            # Jika tidak ada missing rows
+            
             self.table.setRowCount(1)
             self.table.setColumnCount(1)
             self.table.setHorizontalHeaderLabels(["Info"])
             item = QTableWidgetItem("No missing rows found")
-            self.table.setItem(0, 0, item)  # PERBAIKAN: tambah item
+            self.table.setItem(0, 0, item) 

@@ -39,7 +39,7 @@ class SummaryDialog(QDialog):
     def populate_summary(self):
         summary_df = DataAnalyzer.summary(self.df)
         
-        # Pastikan summary_df adalah DataFrame, bukan string
+        
         if isinstance(summary_df, pd.DataFrame):
             self.table.setRowCount(len(summary_df))
             self.table.setColumnCount(len(summary_df.columns))
@@ -50,4 +50,4 @@ class SummaryDialog(QDialog):
                 for j in range(len(summary_df.columns)):
                     value = summary_df.iloc[i, j]
                     item = QTableWidgetItem(str(value) if not pd.isna(value) else "N/A")
-                    self.table.setItem(i, j, item)  # PERBAIKAN: tambah item
+                    self.table.setItem(i, j, item)  
